@@ -1,4 +1,5 @@
-﻿using SDW.WebServiceJogo.MVC.Repositories;
+﻿using SDW.WebServiceJogo.MVC.Models;
+using SDW.WebServiceJogo.MVC.Repositories;
 using SDW.WebServiceJogo.MVC.UnitsofWorks;
 using System;
 using System.Collections.Generic;
@@ -15,25 +16,25 @@ namespace SDW.WebServiceJogoAPI.Controllers
 
         private UnitOfWork _unit = new UnitOfWork();
 
-        // GET api/categoria
-        public IEnumerable<Categoria> Get()
+        // GET api/classificacaoVestuario
+        public IEnumerable<ClassificacaoVestuario> Get()
         {
-            var categorias = _unit.CategoriaRepository.Listar();
-            return categorias;
+            var classificacoes = _unit.ClassificacaoRepository.Listar();
+            return classificacoes;
         }
 
-        // POST api/categoria/{categoria}
-        public HttpResponseMessage Post(Categoria categoria)
+        // POST api/classificacaoVestuario/{classificacao}
+        public HttpResponseMessage Post(ClassificacaoVestuario classificacao)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _unit.CategoriaRepository.Cadastrar(categoria);
+                    _unit.ClassificacaoRepository.Cadastrar(classificacao);
                     _unit.Save();
 
-                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, categoria);
-                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = categoria.CategoriaId }));
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, classificacao);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = classificacao.ClassificacaoVestuarioId }));
                     return response;
                 }
                 else
