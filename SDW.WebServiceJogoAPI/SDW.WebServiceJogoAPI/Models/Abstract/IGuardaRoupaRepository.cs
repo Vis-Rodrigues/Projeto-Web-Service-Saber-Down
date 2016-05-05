@@ -16,6 +16,5 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         ICollection<GuardaRoupa> BuscarPorUsuario(int codigoUsuario);
         ICollection<GuardaRoupa> Listar();
 
-        GuardaRoupa BuscarPorCodigo(int codigo);
     }
 }

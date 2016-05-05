@@ -15,7 +15,5 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         ICollection<Vestuario> Listar();
 
         ICollection<Vestuario> BuscarPorClassificacao(int classificacaoId);
-
-        ICollection<Vestuario> BuscarPorCodigo(int codigo);
     }
 }

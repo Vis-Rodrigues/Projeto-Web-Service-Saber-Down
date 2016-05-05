@@ -16,14 +16,14 @@ namespace SDW.WebServiceJogoAPI.Controllers
 
         private UnitOfWork _unit = new UnitOfWork();
 
-        // GET api/classificacaoVestuario
+        // GET api/classificacao
         public IEnumerable<ClassificacaoVestuario> Get()
         {
             var classificacoes = _unit.ClassificacaoRepository.Listar();
             return classificacoes;
         }
 
-        // POST api/classificacaoVestuario/{classificacao}
+        // POST api/classificacao/{classificacao}
         public HttpResponseMessage Post(ClassificacaoVestuario classificacao)
         {
             try

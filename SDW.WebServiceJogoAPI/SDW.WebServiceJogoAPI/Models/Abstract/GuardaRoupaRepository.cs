@@ -22,11 +22,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.Entry(guardaRoupa).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public GuardaRoupa BuscarPorCodigo(int codigo)
-        {
-            return _context.GuardaRoupas.Find(codigo);
-        }
-
         public ICollection<GuardaRoupa> BuscarPorUsuario(int codigoUsuario)
         {
             return _context.GuardaRoupas.Include("Vestuario").Include("Usuario").Where(p => p.Usuario.UsuarioId == codigoUsuario).ToList();

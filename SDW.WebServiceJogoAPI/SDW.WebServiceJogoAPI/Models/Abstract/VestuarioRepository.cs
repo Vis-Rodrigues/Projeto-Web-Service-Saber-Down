@@ -22,11 +22,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             return _context.Vestuarios.Include("ClassificacaoVestuario").ToList();
         }
 
-        public ICollection<Vestuario> BuscarPorCodigo(int codigo)
-        {
-            return _context.Vestuarios.Include("ClassificacaoVestuario").Where(v => v.VestuarioId == codigo).ToList();
-        }
-
         public void Cadastrar(Vestuario vestuario)
         {
             _context.Vestuarios.Add(vestuario);

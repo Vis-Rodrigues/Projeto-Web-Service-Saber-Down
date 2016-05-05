@@ -11,70 +11,72 @@ using System.Web.Http;
 
 namespace SDW.WebServiceJogoAPI.Controllers
 {
-    public class UsuarioController : ApiController
+    public class PontuacaoController : ApiController
     {
-        private IUsuarioRepository _usuarioRepository { get; set; }
+        private IPontuacaoRepository _pontuacaoRepository { get; set; }
 
         private UnitOfWork _unit = new UnitOfWork();
 
-        // GET api/usuario
-        public IEnumerable<Usuario> GetUsuarios()
+        // GET api/pontuacao
+        public IEnumerable<Pontuacao> Get()
         {
-            var usuarios = _unit.UsuarioRepository.Listar();
-            return usuarios;
+            var pontuacoes = _unit.PontuacaoRepository.Listar();
+            return pontuacoes;
         }
 
-        // GET api/usuario/usuario
-        public Usuario GetUsuario(string nome, string senha)
+        // GET api/pontuacao/id
+        public Pontuacao Get(int id)
         {
-            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
-            if(user == null)
+            Pontuacao pontuacao = _unit.PontuacaoRepository.BuscarPorUsuario(id);
+            if (pontuacao == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
-            return user;
+            return pontuacao;
         }
 
-        // POST api/usuario
-        public HttpResponseMessage Post(Usuario usuario)
+        // POST api/pontuacao
+        public HttpResponseMessage Post(Pontuacao pontuacao)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _unit.UsuarioRepository.Cadastrar(usuario);
+                    _unit.PontuacaoRepository.Cadastrar(pontuacao);
                     _unit.Save();
 
-                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
-                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, pontuacao);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = pontuacao.UsuarioId }));
                     return response;
                 }
                 else
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        //PUT api/usuario/5
-        public HttpResponseMessage Put(int id, Usuario usuario)
+        //PUT api/pontuacao/5
+        public HttpResponseMessage Put(int id, Pontuacao pontuacao)
         {
             if (ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
-            if(id != usuario.UsuarioId)
+            if (id != pontuacao.UsuarioId)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
-            _unit.UsuarioRepository.Atualizar(usuario);
+            _unit.PontuacaoRepository.Atualizar(pontuacao);
             try
             {
                 _unit.Save();
-            }catch(DbUpdateConcurrencyException ex)
+            }
+            catch (DbUpdateConcurrencyException ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
