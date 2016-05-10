@@ -24,7 +24,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
             return usuarios;
         }
 
-        // GET api/login/usuario
+        // GET api/usuario/login/{usuario}
         [AcceptVerbs("GET")]
         public Usuario Login(Usuario usuario)
         {

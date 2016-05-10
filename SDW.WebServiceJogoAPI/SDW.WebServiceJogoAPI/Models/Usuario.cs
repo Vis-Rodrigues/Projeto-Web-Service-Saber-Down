@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,7 @@ namespace SDW.WebServiceJogo.MVC.Models
 
         [Required]
         [MaxLength(30)]
+        [Index(IsUnique =true)]
         public String Descricao { get; set; }
 
         [Required]
@@ -23,6 +25,7 @@ namespace SDW.WebServiceJogo.MVC.Models
 
         [Required]
         [MaxLength(50)]
+        [Index(IsUnique = true)]
         public String Email { get; set; }
 
         public virtual ICollection<QuestaoUsuario> QuestaoUsuarios { get; set; }
