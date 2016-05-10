@@ -24,10 +24,10 @@ namespace SDW.WebServiceJogoAPI.Controllers
             return usuarios;
         }
 
-        // GET api/usuario/usuario
-        public Usuario GetUsuario(string nome, string senha)
+        // GET api/login/usuario
+        public Usuario Login(Usuario usuario)
         {
-            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(usuario.Descricao, usuario.Senha);
             if(user == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
