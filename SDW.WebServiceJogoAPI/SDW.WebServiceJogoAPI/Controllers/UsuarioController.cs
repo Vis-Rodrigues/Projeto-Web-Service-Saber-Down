@@ -25,7 +25,8 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         // GET api/login/usuario
-        public Usuario getLogin(Usuario usuario)
+        [AcceptVerbs("GET")]
+        public Usuario Login(Usuario usuario)
         {
             Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(usuario.Descricao, usuario.Senha);
             if(user == null)
