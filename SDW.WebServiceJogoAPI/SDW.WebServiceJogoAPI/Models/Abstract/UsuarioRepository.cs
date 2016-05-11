@@ -22,9 +22,9 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public Usuario BuscarPorUsuarioSenha(String usuario, String senha)
+        public IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha)
         {
-            return (Usuario) _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha));
+            return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).ToList();
         }
 
         public void Cadastrar(Usuario usuario)

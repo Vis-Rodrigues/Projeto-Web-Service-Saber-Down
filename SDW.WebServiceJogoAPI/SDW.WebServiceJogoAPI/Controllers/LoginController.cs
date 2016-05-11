@@ -16,12 +16,19 @@ namespace SDW.WebServiceJogoAPI.Controllers
         // GET api/login
         public Usuario GetLogin(String nome, String senha)
         {
-            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
             if (user == null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));               
             }
-            return user;
+            else
+            {
+                foreach(Usuario u in user)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
     }
