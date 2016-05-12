@@ -14,7 +14,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
         private UnitOfWork _unit = new UnitOfWork();
 
         //Post api/login
-        public Usuario PostLogin(String nome, String senha)
+        public Usuario Post(String nome, String senha)
         {
             IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
             if (user == null)
