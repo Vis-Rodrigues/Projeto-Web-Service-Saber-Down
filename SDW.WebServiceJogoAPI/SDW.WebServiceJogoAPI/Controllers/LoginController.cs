@@ -14,9 +14,9 @@ namespace SDW.WebServiceJogoAPI.Controllers
         private UnitOfWork _unit = new UnitOfWork();
 
         // GET api/login
-        public int GetLogin(String nome, String senha)
+        public Usuario GetLogin(String nome)
         {
-            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome);
             if (user == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));               
@@ -25,10 +25,10 @@ namespace SDW.WebServiceJogoAPI.Controllers
             {
                 foreach(Usuario u in user)
                 {
-                    return u.UsuarioId;
+                    return u;
                 }
             }
-            return 0;
+            return null;
         }
 
     }
