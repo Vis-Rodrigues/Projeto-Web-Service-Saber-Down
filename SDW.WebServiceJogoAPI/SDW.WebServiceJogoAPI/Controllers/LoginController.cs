@@ -14,7 +14,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
         private UnitOfWork _unit = new UnitOfWork();
 
         // GET api/login
-        public Usuario GetLogin(String nome, String senha)
+        public int GetLogin(String nome, String senha)
         {
             IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
             if (user == null)
@@ -25,10 +25,10 @@ namespace SDW.WebServiceJogoAPI.Controllers
             {
                 foreach(Usuario u in user)
                 {
-                    return u;
+                    return u.UsuarioId;
                 }
             }
-            return null;
+            return 0;
         }
 
     }
