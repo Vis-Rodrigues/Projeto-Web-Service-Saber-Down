@@ -13,10 +13,10 @@ namespace SDW.WebServiceJogoAPI.Controllers
     {
         private UnitOfWork _unit = new UnitOfWork();
 
-        // GET api/login
-        public Usuario GetLogin(String nome)
+        //Post api/login
+        public Usuario PostLogin(Usuario usuario)
         {
-            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome);
+            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(usuario.Descricao, usuario.Senha);
             if (user == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));               
