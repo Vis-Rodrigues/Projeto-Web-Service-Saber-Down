@@ -28,7 +28,9 @@ namespace SDW.WebServiceJogoAPI.Controllers
                     return u;
                 }
             }
-            return null;
+            Usuario us = new Usuario();
+            us.UsuarioId = -1;
+            return us;
         }
 
     }
