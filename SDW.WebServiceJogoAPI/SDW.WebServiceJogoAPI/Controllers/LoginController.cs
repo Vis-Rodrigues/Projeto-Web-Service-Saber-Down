@@ -6,12 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace SDW.WebServiceJogoAPI.Controllers
 {
+
     public class LoginController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
+
 
         //Post api/login
         public Usuario Post(String nome, String senha)

@@ -170,3 +170,5 @@ C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.Web
 C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.WebServiceJogoAPI\obj\Debug\SDW.WebServiceJogoAPI.csprojResolveAssemblyReference.cache
 C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.WebServiceJogoAPI\obj\Debug\SDW.WebServiceJogoAPI.dll
 C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.WebServiceJogoAPI\obj\Debug\SDW.WebServiceJogoAPI.pdb
+C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.WebServiceJogoAPI\bin\Json.dll
+C:\Users\Vivian\.ssh\Source\web_service_saber_down\SDW.WebServiceJogoAPI\SDW.WebServiceJogoAPI\bin\Json.pdb
