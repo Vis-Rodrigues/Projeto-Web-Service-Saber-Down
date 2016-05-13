@@ -20,7 +20,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
         // GET api/usuario
         public IEnumerable<Usuario> GetUsuarios()
         {
-            popularBanco();
             var usuarios = _unit.UsuarioRepository.Listar();
             return usuarios;
         }
@@ -42,14 +41,15 @@ namespace SDW.WebServiceJogoAPI.Controllers
                     _unit.Save();
 
                     HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
-                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId}));
                     return response;
                 }
                 else
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -75,17 +75,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
             return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-        private void popularBanco()
-        {
-            Usuario u = new Usuario();
-            u.Genero = "0";
-            u.Descricao = "admin";
-            u.Senha = "123456";
-            u.Email = "vi_ale10@hotmail.com";
-
-            Post(u);
         }
     }
 }
