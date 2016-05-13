@@ -22,6 +22,11 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
         }
 
+        public Usuario BuscarPorCodigo(int id)
+        {
+            return _context.Usuarios.Find(id);
+        }
+
         public IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha)
          {
              return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).ToList();

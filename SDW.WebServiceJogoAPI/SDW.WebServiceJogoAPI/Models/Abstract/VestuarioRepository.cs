@@ -19,7 +19,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<Vestuario> Listar()
         {
-            return _context.Vestuarios.Include("ClassificacaoVestuario").ToList();
+            return _context.Vestuarios.ToList();
         }
 
         public void Cadastrar(Vestuario vestuario)
@@ -29,7 +29,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<Vestuario> BuscarPorClassificacao(int classificacaoId)
         {
-            return _context.Vestuarios.Include("ClassificacaoVestuario").Where(v => v.ClassificacaoVestuarioId == classificacaoId).ToList();
+            return _context.Vestuarios.Where(v => v.Classificacao == classificacaoId).ToList();
         }
     }
 }

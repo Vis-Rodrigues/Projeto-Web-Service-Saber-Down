@@ -14,5 +14,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha);
         IList<Usuario> Listar();
         void Atualizar(Usuario usuario);
+        Usuario BuscarPorCodigo(int id);
     }
 }

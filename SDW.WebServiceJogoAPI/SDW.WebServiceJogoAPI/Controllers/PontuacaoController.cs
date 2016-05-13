@@ -20,6 +20,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
         // GET api/pontuacao
         public IEnumerable<Pontuacao> Get()
         {
+            popularBanco();
             var pontuacoes = _unit.PontuacaoRepository.Listar();
             return pontuacoes;
         }
@@ -82,5 +83,21 @@ namespace SDW.WebServiceJogoAPI.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        private void popularBanco()
+        {
+            Usuario u = new Usuario();
+            u = _unit.UsuarioRepository.BuscarPorCodigo(1);
+            Pontuacao p = new Pontuacao();
+            p.UsuarioId = u.UsuarioId;
+            p.Usuario = u;
+            p.Moeda = 10;
+            p.Ponto = 10;
+
+            Post(p);
+
+        }
+
+
     }
 }
