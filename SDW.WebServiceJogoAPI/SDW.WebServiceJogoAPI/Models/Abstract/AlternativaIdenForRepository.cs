@@ -19,7 +19,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<AlternativaIdenForme> BuscarPorQuestao(int questaoId)
         {
-            return _context.AlternativasIdenForme.Include("Questao").Where(q => q.QuestaoId == questaoId).ToList();
+            return _context.AlternativasIdenForme.Where(q => q.QuestaoId == questaoId).ToList();
         }
 
         public void Cadastrar(AlternativaIdenForme alternativa)
@@ -29,7 +29,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<AlternativaIdenForme> Listar()
         {
-            return _context.AlternativasIdenForme.Include("Questao").ToList();
+            return _context.AlternativasIdenForme.ToList();
         }
     }
 }

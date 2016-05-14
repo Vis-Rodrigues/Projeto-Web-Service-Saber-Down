@@ -23,7 +23,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<Questao> Listar()
         {
-            return _context.Questoes.Include("Categoria").ToList();
+            return _context.Questoes.ToList();
         }
     }
 }

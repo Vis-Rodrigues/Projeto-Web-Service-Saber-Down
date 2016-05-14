@@ -15,8 +15,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
     public class LoginController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
-
-
+        
         //Post api/login
         public Usuario Post(String nome, String senha)
         {

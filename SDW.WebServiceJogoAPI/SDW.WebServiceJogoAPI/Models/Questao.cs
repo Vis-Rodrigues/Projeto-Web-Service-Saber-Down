@@ -13,13 +13,8 @@ namespace SDW.WebServiceJogo.MVC.Models
         [MaxLength(300)]
         public String Descricao { get; set; }
 
-        public Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }
 
-        public virtual ICollection<AlternativaComPreMon> AlternativasComPreMon { get; set; }
-        public int AlternativaComPreMonId { get; set; }
-
-        public virtual ICollection<AlternativaIdenForme> AlternativasIdenForme { get; set; }
         public int AlternativaIdenFormeId { get; set; }
 
     }

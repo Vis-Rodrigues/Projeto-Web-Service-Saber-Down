@@ -11,20 +11,6 @@ namespace SDW.WebServiceJogo.MVC.UnitsofWorks
     {
         private JogoContext _context = new JogoContext();
 
-        private IAlternativaComPreRepository _alternativaComPreRepository;
-
-        public IAlternativaComPreRepository AlternativaComPreRepository
-        {
-            get
-            {
-                if (_alternativaComPreRepository == null)
-                {
-                    _alternativaComPreRepository = new AlternativaComPreRepository(_context);
-                }
-                return _alternativaComPreRepository;
-            }
-        }
-
         private IAlternativaIdenForRepository _alternativaIdenForRepository;
 
         public IAlternativaIdenForRepository AlternativaIdenForRepository
@@ -37,36 +23,6 @@ namespace SDW.WebServiceJogo.MVC.UnitsofWorks
                         new AlternativaIdenForRepository(_context);
                 }
                 return _alternativaIdenForRepository;
-            }
-        }
-
-        private ICategoriaRepository _categoriaRepository;
-
-        public ICategoriaRepository CategoriaRepository
-        {
-            get
-            {
-                if (_categoriaRepository == null)
-                {
-                    _categoriaRepository =
-                        new CategoriaRepository(_context);
-                }
-                return _categoriaRepository;
-            }
-        }
-
-        private IClassificacaoRepository _classificacaoRepository;
-
-        public IClassificacaoRepository ClassificacaoRepository
-        {
-            get
-            {
-                if (_classificacaoRepository == null)
-                {
-                    _classificacaoRepository =
-                        new ClassificacaoRepository(_context);
-                }
-                return _classificacaoRepository;
             }
         }
 

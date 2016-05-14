@@ -33,7 +33,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<Pontuacao> Listar()
         {
-            return _context.Pontuacoes.Include("Usuario").OrderByDescending(p => p.Ponto).ToList();
+            return _context.Pontuacoes.OrderByDescending(p => p.Ponto).ToList();
         }
     }
 }

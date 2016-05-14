@@ -11,13 +11,7 @@ namespace SDW.WebServiceJogo.MVC.Contexts
     {
         public DbSet<Usuario> Usuarios { get; set; }
 
-        public DbSet<AlternativaComPreMon> AlternativasComPreMon { get; set; }
-
         public DbSet<AlternativaIdenForme> AlternativasIdenForme { get; set; }
-
-        public DbSet<Categoria> Categorias { get; set; }
-
-        public DbSet<ClassificacaoVestuario> ClassificacaoVestuarios { get; set; }
 
         public DbSet<GuardaRoupa> GuardaRoupas { get; set; }
 

@@ -229,10 +229,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AlternativaComPreController.cs" />
     <Compile Include="Controllers\AlternativaIdenForController.cs" />
-    <Compile Include="Controllers\CategoriaController.cs" />
-    <Compile Include="Controllers\ClassificacaoController.cs" />
     <Compile Include="Controllers\GuardaRoupaController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PontuacaoController.cs" />
@@ -244,15 +241,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Abstract\AlternativaComPreRepository.cs" />
     <Compile Include="Models\Abstract\AlternativaIdenForRepository.cs" />
-    <Compile Include="Models\Abstract\CategoriaRepository.cs" />
-    <Compile Include="Models\Abstract\ClassificacaoRepository.cs" />
     <Compile Include="Models\Abstract\GuardaRoupaRepository.cs" />
-    <Compile Include="Models\Abstract\IAlternativaComPreRepository.cs" />
     <Compile Include="Models\Abstract\IAlternativaIdenForRepository.cs" />
-    <Compile Include="Models\Abstract\ICategoriaRepository.cs" />
-    <Compile Include="Models\Abstract\IClassificacaoRepository.cs" />
     <Compile Include="Models\Abstract\IGuardaRoupaRepository.cs" />
     <Compile Include="Models\Abstract\IPontuacaoRepository.cs" />
     <Compile Include="Models\Abstract\IQuestaoRepository.cs" />
@@ -266,10 +257,7 @@
     <Compile Include="Models\Abstract\VestuarioRepository.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AlternativaComPreMon.cs" />
     <Compile Include="Models\AlternativaIdenForme.cs" />
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\ClassificacaoVestuario.cs" />
     <Compile Include="Models\GuardaRoupa.cs" />
     <Compile Include="Contexts\JogoContextInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />

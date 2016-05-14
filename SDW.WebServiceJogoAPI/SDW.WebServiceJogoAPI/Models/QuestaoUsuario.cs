@@ -13,10 +13,8 @@ namespace SDW.WebServiceJogo.MVC.Models
         [Required]
         public bool Acerto { get; set; }
 
-        public Usuario Usuario { get; set; }
         public int UsuarioId { get; set; }
 
-        public Questao Questao { get; set; }
         public int QuestaoId { get; set; }
 
     }

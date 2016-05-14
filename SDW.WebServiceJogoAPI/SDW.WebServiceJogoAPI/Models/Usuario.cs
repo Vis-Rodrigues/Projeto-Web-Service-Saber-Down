@@ -27,10 +27,5 @@ namespace SDW.WebServiceJogo.MVC.Models
         [MaxLength(50)]
         [Index(IsUnique = true)]
         public String Email { get; set; }
-
-        public virtual ICollection<QuestaoUsuario> QuestaoUsuarios { get; set; }
-
-        public virtual ICollection<GuardaRoupa> GuardaRoupas { get; set; }
-
     }
 }

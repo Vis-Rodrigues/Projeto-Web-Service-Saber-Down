@@ -13,10 +13,10 @@ namespace SDW.WebServiceJogo.MVC.Models
         [Required]
         public bool RoupaUtilizada { get; set; }
 
-        public Vestuario Vestuario { get; set; }
+        [Required]
         public int VestuarioId { get; set; }
 
-        public Usuario Usuario { get; set; }
+        [Required]
         public int UsuarioId { get; set; }
 
     }

@@ -24,7 +24,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<GuardaRoupa> BuscarPorUsuario(int codigoUsuario)
         {
-            return _context.GuardaRoupas.Include("Vestuario").Include("Usuario").Where(p => p.Usuario.UsuarioId == codigoUsuario).ToList();
+            return _context.GuardaRoupas.Where(p => p.UsuarioId == codigoUsuario).ToList();
         }
 
         public void Cadastrar(GuardaRoupa guardaRoupa)
@@ -34,7 +34,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public ICollection<GuardaRoupa> Listar()
         {
-            return _context.GuardaRoupas.Include("Vestuario").Include("Usuario").ToList();
+            return _context.GuardaRoupas.ToList();
         }
     }
 }
