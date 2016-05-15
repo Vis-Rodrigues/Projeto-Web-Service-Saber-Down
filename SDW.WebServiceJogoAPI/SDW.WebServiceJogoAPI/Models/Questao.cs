@@ -15,7 +15,5 @@ namespace SDW.WebServiceJogo.MVC.Models
 
         public int CategoriaId { get; set; }
 
-        public int AlternativaIdenFormeId { get; set; }
-
     }
 }
