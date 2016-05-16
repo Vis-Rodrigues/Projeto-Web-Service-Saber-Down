@@ -56,10 +56,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
         //PUT api/guardaRoupa/5
         public HttpResponseMessage Put(int id, GuardaRoupa guardaRoupa)
         {
-            if (ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
             if (id != guardaRoupa.GuardaRoupaId)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);

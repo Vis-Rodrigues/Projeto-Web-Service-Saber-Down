@@ -63,10 +63,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
         //PUT api/pontuacao/5
         public HttpResponseMessage Put(int id, Pontuacao pontuacao)
         {
-            if (ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
             if (id != pontuacao.UsuarioId)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);

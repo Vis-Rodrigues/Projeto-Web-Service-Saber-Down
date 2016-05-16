@@ -23,7 +23,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public Pontuacao BuscarPorUsuario(int id)
         {
-            return _context.Pontuacoes.Find(id);
+            return (Pontuacao)_context.Pontuacoes.Where(p => p.UsuarioId == id);
         }
 
         public void Cadastrar(Pontuacao pontuacao)
