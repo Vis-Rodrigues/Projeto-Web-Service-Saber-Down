@@ -5,12 +5,15 @@ using System.Linq;
 using System.Web;
 using SDW.WebServiceJogo.MVC.Models;
 using System.Linq.Expressions;
+using SDW.WebServiceJogoAPI.Models.Abstract;
 
 namespace SDW.WebServiceJogo.MVC.Repositories
 {
     public class UsuarioRepository :IUsuarioRepository
     {
         private JogoContext _context;
+        private Hash hash;
+        private Guid guid = Guid.NewGuid();
 
         public UsuarioRepository(JogoContext context)
         {
@@ -29,11 +32,14 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha)
          {
-             return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).ToList();
+             return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(hash.CriptografarSenha(senha+guid.ToString()))).ToList();
          }
 
         public void Cadastrar(Usuario usuario)
         {
+            
+            String senha = usuario.Senha;
+            usuario.Senha = hash.CriptografarSenha(senha + guid.ToString());
             _context.Usuarios.Add(usuario);
         }
 
@@ -41,5 +47,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         {
             return _context.Usuarios.ToList();
         }
+
     }
 }

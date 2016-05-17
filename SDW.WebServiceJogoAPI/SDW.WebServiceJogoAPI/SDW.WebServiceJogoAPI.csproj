@@ -243,6 +243,7 @@
     </Compile>
     <Compile Include="Models\Abstract\AlternativaIdenForRepository.cs" />
     <Compile Include="Models\Abstract\GuardaRoupaRepository.cs" />
+    <Compile Include="Models\Abstract\Hash.cs" />
     <Compile Include="Models\Abstract\IAlternativaIdenForRepository.cs" />
     <Compile Include="Models\Abstract\IGuardaRoupaRepository.cs" />
     <Compile Include="Models\Abstract\IPontuacaoRepository.cs" />

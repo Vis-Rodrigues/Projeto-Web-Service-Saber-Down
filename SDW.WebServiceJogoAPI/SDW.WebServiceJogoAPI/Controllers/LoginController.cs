@@ -17,21 +17,32 @@ namespace SDW.WebServiceJogoAPI.Controllers
         private UnitOfWork _unit = new UnitOfWork();
         
         //Post api/login
-        public Usuario Post(String nome, String senha)
+        public HttpResponseMessage Post(String nome, String senha)
         {
-            IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
-            if (user == null)
+            try
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));               
-            }
-            else
-            {
-                foreach(Usuario u in user)
+                if (ModelState.IsValid)
                 {
-                    return u;
+                    IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+                    Usuario usuario = new Usuario();
+                    foreach (Usuario u in user)
+                    {
+                        usuario = u;                        
+                    }
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
+                    return response;
+                    
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
             }
-            return null;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }
