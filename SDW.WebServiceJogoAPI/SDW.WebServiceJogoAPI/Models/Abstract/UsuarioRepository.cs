@@ -32,14 +32,15 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha)
          {
-             return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(hash.CriptografarSenha(senha+guid.ToString()))).ToList();
+            //hash.CriptografarSenha(senha+guid.ToString())
+            return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).ToList();
          }
 
         public void Cadastrar(Usuario usuario)
         {
             
-            String senha = usuario.Senha;
-            usuario.Senha = hash.CriptografarSenha(senha + guid.ToString());
+           // String senha = usuario.Senha;
+            //usuario.Senha = hash.CriptografarSenha(senha + guid.ToString());
             _context.Usuarios.Add(usuario);
         }
 

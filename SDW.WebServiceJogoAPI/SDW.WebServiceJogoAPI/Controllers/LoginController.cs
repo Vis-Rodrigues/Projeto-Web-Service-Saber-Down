@@ -19,8 +19,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
         //Post api/login
         public HttpResponseMessage Post(String nome, String senha)
         {
-            try
-            {
                 if (ModelState.IsValid)
                 {
                     IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
@@ -38,11 +36,8 @@ namespace SDW.WebServiceJogoAPI.Controllers
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            
+            
         }
 
     }
