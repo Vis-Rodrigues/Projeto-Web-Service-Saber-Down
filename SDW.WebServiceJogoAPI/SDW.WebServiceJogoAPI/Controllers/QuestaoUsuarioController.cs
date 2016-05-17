@@ -53,9 +53,13 @@ namespace SDW.WebServiceJogoAPI.Controllers
             }
         }
 
-        //PUT api/questaoUsuario
-        public HttpResponseMessage Put(QuestaoUsuario questaoUsuario)
+        //PUT api/questaoUsuario/
+        public HttpResponseMessage Put(int id, QuestaoUsuario questaoUsuario)
         {
+            if (id != questaoUsuario.QuestaoUsuarioId)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
             try
             {
                 _unit.QuestaoUsuarioRepository.Atualizar(questaoUsuario);
