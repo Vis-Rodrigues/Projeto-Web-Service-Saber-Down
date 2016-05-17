@@ -28,10 +28,6 @@ namespace SDW.WebServiceJogoAPI.Controllers
         public IEnumerable<Pontuacao> Get(int id)
         {
             var pontuacoes = _unit.PontuacaoRepository.BuscarPorUsuario(id);
-            if (pontuacoes == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
             return pontuacoes;
         }
 
@@ -61,8 +57,12 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         //PUT api/pontuacao/5
-        public HttpResponseMessage Put(Pontuacao pontuacao)
-        {           
+        public HttpResponseMessage Put(int id, Pontuacao pontuacao)
+        {
+            if (id != pontuacao.PontuacaoId)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
             try
             {
                 _unit.PontuacaoRepository.Atualizar(pontuacao);
