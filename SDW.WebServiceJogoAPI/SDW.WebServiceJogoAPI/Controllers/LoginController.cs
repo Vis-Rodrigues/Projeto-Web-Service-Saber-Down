@@ -20,7 +20,9 @@ namespace SDW.WebServiceJogoAPI.Controllers
         public HttpResponseMessage Post(String nome, String senha)
         {
             try
-            {                
+            {
+                if (ModelState.IsValid)
+                {
                     IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
                     Usuario usuario = new Usuario();
                     foreach (Usuario u in user)
@@ -29,11 +31,17 @@ namespace SDW.WebServiceJogoAPI.Controllers
                     }
                     HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
                     response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
-                    return response;                                    
+                    return response;
+                    
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                throw ex;
             }
         }
 
