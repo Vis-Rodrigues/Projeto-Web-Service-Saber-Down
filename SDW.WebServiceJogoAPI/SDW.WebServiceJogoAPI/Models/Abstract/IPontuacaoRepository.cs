@@ -11,7 +11,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
     {
         void Cadastrar(Pontuacao pontuacao);
         void Atualizar(Pontuacao pontuacao);
-        Pontuacao BuscarPorUsuario(int id);
+        ICollection<Pontuacao> BuscarPorUsuario(int id);
         ICollection<Pontuacao> Listar();
 
     }

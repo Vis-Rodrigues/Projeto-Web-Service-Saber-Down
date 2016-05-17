@@ -13,5 +13,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         void Cadastrar(QuestaoUsuario questaoUsuario);
         ICollection<QuestaoUsuario> BuscarPorUsuario(int usuarioId);
         ICollection<QuestaoUsuario> Listar();
+        void Atualizar(QuestaoUsuario questaoUsuario);
     }
 }

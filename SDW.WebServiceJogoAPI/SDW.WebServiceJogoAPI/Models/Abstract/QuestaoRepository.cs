@@ -16,6 +16,11 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context = context;
         }
 
+        public ICollection<Questao> BuscarPorCategoria(int id)
+        {
+            return _context.Questoes.Where(q => q.CategoriaId == id).ToList();
+        }
+
         public void Cadastrar(Questao questao)
         {
             _context.Questoes.Add(questao);

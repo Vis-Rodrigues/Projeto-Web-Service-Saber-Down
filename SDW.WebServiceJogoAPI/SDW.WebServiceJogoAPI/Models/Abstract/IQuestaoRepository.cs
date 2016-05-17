@@ -10,6 +10,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
     public interface IQuestaoRepository
     {
         void Cadastrar(Questao questao);
+        ICollection<Questao> BuscarPorCategoria(int id);
         ICollection<Questao> Listar();
     }
 }

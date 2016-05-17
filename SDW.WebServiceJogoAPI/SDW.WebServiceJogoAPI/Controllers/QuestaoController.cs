@@ -20,6 +20,13 @@ namespace SDW.WebServiceJogoAPI.Controllers
             return questoes;
         }
 
+        // GET api/questao/id
+        public IEnumerable<Questao> Get(int id)
+        {
+            var questoes = _unit.QuestaoRepository.BuscarPorCategoria(id);
+            return questoes;
+        }
+
         // POST api/questao/{questao}
         public HttpResponseMessage Post(Questao questao)
         {

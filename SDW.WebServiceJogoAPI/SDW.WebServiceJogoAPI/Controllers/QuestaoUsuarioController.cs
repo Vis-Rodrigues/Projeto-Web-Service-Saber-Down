@@ -2,6 +2,7 @@
 using SDW.WebServiceJogo.MVC.UnitsofWorks;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -50,6 +51,21 @@ namespace SDW.WebServiceJogoAPI.Controllers
             {
                 throw ex;
             }
+        }
+
+        //PUT api/questaoUsuario
+        public HttpResponseMessage Put(QuestaoUsuario questaoUsuario)
+        {
+            try
+            {
+                _unit.QuestaoUsuarioRepository.Atualizar(questaoUsuario);
+                _unit.Save();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

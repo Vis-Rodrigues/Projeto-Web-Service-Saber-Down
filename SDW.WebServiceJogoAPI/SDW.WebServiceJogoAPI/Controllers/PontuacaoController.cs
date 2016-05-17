@@ -25,14 +25,14 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         // GET api/pontuacao/id
-        public Pontuacao Get(int id)
+        public IEnumerable<Pontuacao> Get(int id)
         {
-            Pontuacao pontuacao = _unit.PontuacaoRepository.BuscarPorUsuario(id);
-            if (pontuacao == null)
+            var pontuacoes = _unit.PontuacaoRepository.BuscarPorUsuario(id);
+            if (pontuacoes == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
-            return pontuacao;
+            return pontuacoes;
         }
 
         // POST api/pontuacao
@@ -61,15 +61,11 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         //PUT api/pontuacao/5
-        public HttpResponseMessage Put(int id, Pontuacao pontuacao)
-        {
-            if (id != pontuacao.UsuarioId)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-            _unit.PontuacaoRepository.Atualizar(pontuacao);
+        public HttpResponseMessage Put(Pontuacao pontuacao)
+        {           
             try
             {
+                _unit.PontuacaoRepository.Atualizar(pontuacao);
                 _unit.Save();
             }
             catch (DbUpdateConcurrencyException ex)

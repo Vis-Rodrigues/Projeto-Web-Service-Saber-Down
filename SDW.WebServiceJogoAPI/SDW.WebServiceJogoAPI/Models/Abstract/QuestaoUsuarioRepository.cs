@@ -17,6 +17,11 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context = context;
         }
 
+        public void Atualizar(QuestaoUsuario questaoUsuario)
+        {
+            _context.Entry(questaoUsuario).State = System.Data.Entity.EntityState.Modified;
+        }
+
         public ICollection<QuestaoUsuario> BuscarPorUsuario(int usuarioId)
         {
             return _context.QuestaoUsuarios.Where(q => q.UsuarioId == usuarioId).ToList();
