@@ -28,7 +28,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
                         usuario = u;                        
                     }
                     HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
-                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
+                    //response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
                     return response;
                     
                 }
