@@ -31,7 +31,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         // POST api/usuario
-        public HttpResponseMessage Post(Usuario usuario)
+        /*public HttpResponseMessage Post(Usuario usuario)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
             {
                 throw ex;
             }
-        }
+        }*/
 
         //PUT api/usuario/5
         public HttpResponseMessage Put(int id, Usuario usuario)
