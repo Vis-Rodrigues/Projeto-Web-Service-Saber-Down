@@ -15,16 +15,14 @@ namespace SDW.WebServiceJogoAPI.Controllers
     public class LoginController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
-        
+
         //Post api/login
         public HttpResponseMessage Post(String nome, String senha)
         {
-                
+
             Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
-            user = new Usuario();
-            user.Descricao = "eduardo";
-            user.UsuarioId = 1;
-            if(user == null)
+
+            if (user == null)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario Não Encontrado!");
             }
