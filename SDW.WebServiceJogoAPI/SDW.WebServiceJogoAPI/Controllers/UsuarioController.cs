@@ -81,7 +81,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
             user = new Usuario();
             user.Descricao = "eduardo";
             user.UsuarioId = 1;
-            if (user == null)
+            if (1!=1)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario Não Encontrado!");
             }
