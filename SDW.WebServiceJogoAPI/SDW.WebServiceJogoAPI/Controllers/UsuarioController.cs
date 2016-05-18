@@ -31,7 +31,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
         }
 
         // POST api/usuario
-        /*public HttpResponseMessage Post(Usuario usuario)
+        public HttpResponseMessage Post(Usuario usuario)
         {
             try
             {
@@ -53,12 +53,12 @@ namespace SDW.WebServiceJogoAPI.Controllers
             {
                 throw ex;
             }
-        }*/
+        }
 
         //PUT api/usuario/5
         public HttpResponseMessage Put(int id, Usuario usuario)
         {
-            if(id != usuario.UsuarioId)
+            if (id != usuario.UsuarioId)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
@@ -66,28 +66,12 @@ namespace SDW.WebServiceJogoAPI.Controllers
             try
             {
                 _unit.Save();
-            }catch(DbUpdateConcurrencyException ex)
+            }
+            catch (DbUpdateConcurrencyException ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
             return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-        //Post api/login
-        public HttpResponseMessage Post(Usuario usuario)
-        {
-
-            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(usuario.Descricao, usuario.Senha);
-
-            if (user == null)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario Não Encontrado!");
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, user);
-            }
-
         }
 
 
