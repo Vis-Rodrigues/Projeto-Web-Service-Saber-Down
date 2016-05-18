@@ -33,7 +33,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         public Usuario BuscarPorUsuarioSenha(String usuario, String senha)
          {
             //hash.CriptografarSenha(senha+guid.ToString())
-            return (Usuario)_context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha));
+            return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).FirstOrDefault();
          }
 
         public void Cadastrar(Usuario usuario)
