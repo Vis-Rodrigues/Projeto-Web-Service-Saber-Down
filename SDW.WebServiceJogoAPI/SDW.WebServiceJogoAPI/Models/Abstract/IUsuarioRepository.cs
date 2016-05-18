@@ -11,7 +11,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
     public interface IUsuarioRepository
     {
         void Cadastrar(Usuario usuario);
-        IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha);
+        Usuario BuscarPorUsuarioSenha(String usuario, String senha);
         IList<Usuario> Listar();
         void Atualizar(Usuario usuario);
         Usuario BuscarPorCodigo(int id);

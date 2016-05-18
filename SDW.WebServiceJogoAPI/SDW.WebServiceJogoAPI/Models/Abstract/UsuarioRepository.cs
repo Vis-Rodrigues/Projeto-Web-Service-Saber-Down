@@ -30,10 +30,10 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             return _context.Usuarios.Find(id);
         }
 
-        public IList<Usuario> BuscarPorUsuarioSenha(String usuario, String senha)
+        public Usuario BuscarPorUsuarioSenha(String usuario, String senha)
          {
             //hash.CriptografarSenha(senha+guid.ToString())
-            return _context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha)).ToList();
+            return (Usuario)_context.Usuarios.Where(s => s.Descricao.Equals(usuario) && s.Senha.Equals(senha));
          }
 
         public void Cadastrar(Usuario usuario)

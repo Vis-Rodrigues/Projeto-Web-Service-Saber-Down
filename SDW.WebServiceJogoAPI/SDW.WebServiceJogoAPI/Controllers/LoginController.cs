@@ -19,26 +19,19 @@ namespace SDW.WebServiceJogoAPI.Controllers
         //Post api/login
         public HttpResponseMessage Post(String nome, String senha)
         {
-                if (ModelState.IsValid)
-                {
-                   // IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
-                    Usuario usuario = new Usuario();
-                usuario.UsuarioId = 1;
-                usuario.Descricao = "eduardo";
-                usuario.Senha = "123456";
-                usuario.Genero = "1";
-                usuario.Email = "edu@gmail.com";
-                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
-                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
-                    return response;
-                    
-                }
-                else
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-            
-            
+                
+            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+            if(user == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            else
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, user);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = user.UsuarioId }));
+                return response;
+            }
+
         }
 
     }
