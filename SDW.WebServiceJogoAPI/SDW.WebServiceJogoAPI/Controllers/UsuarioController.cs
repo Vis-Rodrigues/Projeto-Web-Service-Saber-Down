@@ -87,7 +87,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.OK, user);
+                return Request.CreateResponse(HttpStatusCode.OK, "");
             }
 
         }
