@@ -72,5 +72,22 @@ namespace SDW.WebServiceJogoAPI.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        //Post api/usuario
+        public HttpResponseMessage Post(String nome, String senha)
+        {
+
+            Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+
+            if (user == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario Não Encontrado!");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, user);
+            }
+
+        }
     }
 }
