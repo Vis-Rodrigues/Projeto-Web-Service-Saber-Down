@@ -23,13 +23,11 @@ namespace SDW.WebServiceJogoAPI.Controllers
             Usuario user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
             if(user == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario Não Encontrado!");
             }
             else
             {
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, user);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = user.UsuarioId }));
-                return response;
+                return Request.CreateResponse(HttpStatusCode.OK, user);
             }
 
         }
