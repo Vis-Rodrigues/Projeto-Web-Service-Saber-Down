@@ -21,14 +21,15 @@ namespace SDW.WebServiceJogoAPI.Controllers
         {
                 if (ModelState.IsValid)
                 {
-                    IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
+                   // IEnumerable<Usuario> user = _unit.UsuarioRepository.BuscarPorUsuarioSenha(nome, senha);
                     Usuario usuario = new Usuario();
-                    foreach (Usuario u in user)
-                    {
-                        usuario = u;                        
-                    }
+                usuario.UsuarioId = 1;
+                usuario.Descricao = "eduardo";
+                usuario.Senha = "123456";
+                usuario.Genero = "1";
+                usuario.Email = "edu@gmail.com";
                     HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, usuario);
-                    //response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = usuario.UsuarioId }));
                     return response;
                     
                 }
