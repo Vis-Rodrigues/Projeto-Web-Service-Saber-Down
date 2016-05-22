@@ -56,5 +56,32 @@ namespace SDW.WebServiceJogoAPI.Controllers
                 throw ex;
             }
         }
+
+        // DELETE api/alternativaIdenFor
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _unit.AlternativaIdenForRepository.Deletar(id);
+                    _unit.Save();
+
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, id);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = id }));
+                    return response;
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }
