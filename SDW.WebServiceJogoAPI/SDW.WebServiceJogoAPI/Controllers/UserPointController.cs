@@ -4,6 +4,7 @@ using SDW.WebServiceJogoAPI.Models;
 using SDW.WebServiceJogoAPI.Models.Abstract;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,7 +16,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
     { 
         private UnitOfWork _unit = new UnitOfWork();
 
-        private ICollection<UserPoint> lista;
+        private ICollection<UserPoint> lista = new Collection<UserPoint>();
 
         // GET api/pontuacao
         public IEnumerable<UserPoint> Get()
