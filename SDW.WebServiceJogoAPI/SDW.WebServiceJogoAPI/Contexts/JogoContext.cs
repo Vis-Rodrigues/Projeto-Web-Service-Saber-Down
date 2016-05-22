@@ -20,8 +20,6 @@ namespace SDW.WebServiceJogo.MVC.Contexts
 
         public DbSet<Questao> Questoes { get; set; }
 
-        public DbSet<UserPoint> UserPoints { get; set; }
-
         public DbSet<QuestaoUsuario> QuestaoUsuarios { get; set; }
 
         public DbSet<Vestuario> Vestuarios { get; set; }

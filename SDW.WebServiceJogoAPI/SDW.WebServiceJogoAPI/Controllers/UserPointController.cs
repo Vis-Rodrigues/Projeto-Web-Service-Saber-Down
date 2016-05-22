@@ -42,5 +42,24 @@ namespace SDW.WebServiceJogoAPI.Controllers
             }
             return lista;
         }
+
+        public class UserPoint{
+      
+            public int PontuacaoId { get; set; }
+
+            public int Ponto { get; set; }
+
+            public int Moeda { get; set; }
+
+            public int UsuarioId { get; set; }
+
+            public String Descricao { get; set; }
+
+            public String Senha { get; set; }
+
+            public String Genero { get; set; }
+
+            public String Email { get; set; }
+        }
     }
 }

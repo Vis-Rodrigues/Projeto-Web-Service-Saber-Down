@@ -266,7 +266,6 @@
     <Compile Include="Models\Pontuacao.cs" />
     <Compile Include="Models\Questao.cs" />
     <Compile Include="Models\QuestaoUsuario.cs" />
-    <Compile Include="Models\UserPoint.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Vestuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
