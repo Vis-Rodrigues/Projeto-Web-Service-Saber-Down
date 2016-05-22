@@ -26,9 +26,19 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.Questoes.Add(questao);
         }
 
+        public void Deletar(int codigo)
+        {
+            _context.Questoes.Remove(BuscarPorCodigo(codigo));
+        }
+
         public ICollection<Questao> Listar()
         {
             return _context.Questoes.ToList();
+        }
+
+        public Questao BuscarPorCodigo(int id)
+        {
+            return _context.Questoes.Find(id);
         }
     }
 }

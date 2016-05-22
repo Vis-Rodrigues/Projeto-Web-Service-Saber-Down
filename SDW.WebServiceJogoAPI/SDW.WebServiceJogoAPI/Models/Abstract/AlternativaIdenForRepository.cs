@@ -27,9 +27,19 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             _context.AlternativasIdenForme.Add(alternativa);
         }
 
+        public void Deletar(int codigo)
+        {
+            _context.AlternativasIdenForme.Remove(BuscarPorCodigo(codigo));
+        }
+
         public ICollection<AlternativaIdenForme> Listar()
         {
             return _context.AlternativasIdenForme.ToList();
+        }
+
+        public AlternativaIdenForme BuscarPorCodigo(int id)
+        {
+            return _context.AlternativasIdenForme.Find(id);
         }
     }
 }

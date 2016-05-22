@@ -12,5 +12,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         void Cadastrar(Questao questao);
         ICollection<Questao> BuscarPorCategoria(int id);
         ICollection<Questao> Listar();
+        void Deletar(int codigo);
     }
 }

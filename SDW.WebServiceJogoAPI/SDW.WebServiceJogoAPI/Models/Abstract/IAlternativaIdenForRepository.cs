@@ -13,5 +13,7 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         void Cadastrar(AlternativaIdenForme alternativa);
         ICollection<AlternativaIdenForme> BuscarPorQuestao(int questaoId);
         ICollection<AlternativaIdenForme> Listar();
+        void Deletar(int codigo);
+        AlternativaIdenForme BuscarPorCodigo(int id);
     }
 }

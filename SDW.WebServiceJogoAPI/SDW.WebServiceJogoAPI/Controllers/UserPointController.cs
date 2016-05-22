@@ -27,18 +27,19 @@ namespace SDW.WebServiceJogoAPI.Controllers
 
         private ICollection<UserPoint> Popular()
         {
-           foreach(Pontuacao p in _unit.PontuacaoRepository.Listar()){
+            foreach (Pontuacao p in _unit.PontuacaoRepository.Listar())
+            {
                 UserPoint userPoint = new UserPoint();
-                userPoint.PontuacaoId = 1;
-                userPoint.Moeda = 0;
-                userPoint.Ponto = 0;
-                userPoint.UsuarioId = 4;
+                userPoint.PontuacaoId = p.PontuacaoId;
+                userPoint.Moeda = p.Moeda;
+                userPoint.Ponto = p.Ponto;
+                userPoint.UsuarioId = p.UsuarioId;
                 Usuario u = new Usuario();
-                u = _unit.UsuarioRepository.BuscarPorCodigo(4);
-                userPoint.Descricao = "teste";
-                userPoint.Email = "teste@gmail.com";
-                userPoint.Genero = "0";
-                userPoint.Senha = "123456";
+                u = _unit.UsuarioRepository.BuscarPorCodigo(userPoint.UsuarioId);
+                userPoint.Descricao = u.Descricao;
+                userPoint.Email = u.Email;
+                userPoint.Genero = u.Genero;
+                userPoint.Senha = u.Senha;
                 lista.Add(userPoint);
             }
             return lista;
