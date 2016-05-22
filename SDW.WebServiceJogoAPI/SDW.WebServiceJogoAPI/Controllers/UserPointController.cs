@@ -29,11 +29,11 @@ namespace SDW.WebServiceJogoAPI.Controllers
            foreach(Pontuacao p in _unit.PontuacaoRepository.Listar()){
                 UserPoint userPoint = new UserPoint();
                 userPoint.PontuacaoId = p.PontuacaoId;
-                userPoint.Moeda = p.Moeda;
-                userPoint.Ponto = p.Ponto;
-                userPoint.UsuarioId = p.UsuarioId;
+                userPoint.Moeda = 0;
+                userPoint.Ponto = 0;
+                userPoint.UsuarioId = 4;
                 Usuario u = new Usuario();
-                u = _unit.UsuarioRepository.BuscarPorCodigo(userPoint.UsuarioId);
+                u = _unit.UsuarioRepository.BuscarPorCodigo(4);
                 userPoint.Descricao = u.Descricao;
                 userPoint.Email = u.Email;
                 userPoint.Genero = u.Genero;
