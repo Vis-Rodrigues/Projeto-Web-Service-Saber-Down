@@ -235,6 +235,7 @@
     <Compile Include="Controllers\PontuacaoController.cs" />
     <Compile Include="Controllers\QuestaoController.cs" />
     <Compile Include="Controllers\QuestaoUsuarioController.cs" />
+    <Compile Include="Controllers\UserPointController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Contexts\JogoContext.cs" />
     <Compile Include="Controllers\VestuarioController.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="Models\Pontuacao.cs" />
     <Compile Include="Models\Questao.cs" />
     <Compile Include="Models\QuestaoUsuario.cs" />
+    <Compile Include="Models\UserPoint.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Vestuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

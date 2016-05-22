@@ -1,5 +1,6 @@
 ﻿using SDW.WebServiceJogo.MVC.Contexts;
 using SDW.WebServiceJogo.MVC.Repositories;
+using SDW.WebServiceJogoAPI.Models.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
