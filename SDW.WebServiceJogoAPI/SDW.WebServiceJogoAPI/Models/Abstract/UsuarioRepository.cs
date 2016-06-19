@@ -6,6 +6,8 @@ using System.Web;
 using SDW.WebServiceJogo.MVC.Models;
 using System.Linq.Expressions;
 using SDW.WebServiceJogoAPI.Models.Abstract;
+using SendGrid;
+using System.Net.Mail;
 
 namespace SDW.WebServiceJogo.MVC.Repositories
 {
@@ -49,5 +51,34 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             return _context.Usuarios.ToList();
         }
 
+        public Usuario EnviarEmail(string email)
+        {
+            // email: jogosaberdown@gmail.com
+            // senha: saberdownjogo
+            // sendgrid user: JogoSaberDown
+            // senha: saberdown2016
+            Usuario usuario = _context.Usuarios.Where(s => s.Email.Equals(email)).FirstOrDefault();
+            if(usuario != null)
+            {
+                Random r = new Random();
+                int codigo = r.Next(10000, 99999);
+                usuario.Senha = codigo.ToString();
+
+                // Create the email object first, then add the properties.
+                SendGridMessage myMessage = new SendGridMessage();
+                myMessage.AddTo(email);
+                myMessage.From = new MailAddress("jogosaberdown@gmail.com", "Saber Down");
+                myMessage.Subject = "Nova Senha";
+                myMessage.Text = "Olá "+usuario.Descricao +"!\n\n Sua nova senha é: " + usuario.Senha + " \n\nAtenciosamente, \nJogo Saber Down";
+
+                // Create a Web transport, using API Key
+                var transportWeb = new Web("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");
+
+                // Send the email.
+                transportWeb.DeliverAsync(myMessage);
+            }
+
+            return usuario;
+        }
     }
 }

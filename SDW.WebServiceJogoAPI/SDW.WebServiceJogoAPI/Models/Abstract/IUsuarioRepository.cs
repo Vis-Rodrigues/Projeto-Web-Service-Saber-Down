@@ -15,5 +15,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         IList<Usuario> Listar();
         void Atualizar(Usuario usuario);
         Usuario BuscarPorCodigo(int id);
+        Usuario EnviarEmail(string email);
     }
 }
