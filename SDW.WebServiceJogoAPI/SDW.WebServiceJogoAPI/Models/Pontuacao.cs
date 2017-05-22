@@ -19,5 +19,11 @@ namespace SDW.WebServiceJogo.MVC.Models
 
         [Required]
         public int Moeda { get; set; }
+
+        [Required]
+        public int Acerto { get; set; }
+
+        [Required]
+        public int Erro { get; set; }
     }
 }

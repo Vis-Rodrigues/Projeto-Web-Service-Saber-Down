@@ -8,7 +8,6 @@ using System.Linq.Expressions;
 using SDW.WebServiceJogoAPI.Models.Abstract;
 using SendGrid;
 using System.Net.Mail;
-using SDW.WebServiceJogoAPI.Utils;
 
 namespace SDW.WebServiceJogo.MVC.Repositories
 {
@@ -41,10 +40,9 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public void Cadastrar(Usuario usuario)
         {
-
-            // String senha = usuario.Senha;
+            
+           // String senha = usuario.Senha;
             //usuario.Senha = hash.CriptografarSenha(senha + guid.ToString());
-            usuario.Senha = CriptografiaUtils.CriptografarSHA256(usuario.Senha);
             _context.Usuarios.Add(usuario);
         }
 
@@ -64,14 +62,14 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             {
                 Random r = new Random();
                 int codigo = r.Next(10000, 99999);
-                usuario.Senha = CriptografiaUtils.CriptografarSHA256(codigo.ToString());
+                usuario.Senha = codigo.ToString();
 
                 // Create the email object first, then add the properties.
                 SendGridMessage myMessage = new SendGridMessage();
                 myMessage.AddTo(email);
                 myMessage.From = new MailAddress("jogosaberdown@gmail.com", "Saber Down");
-                myMessage.Subject = "Nova Senha";
-                myMessage.Text = "Olá "+usuario.Descricao +"!\n\n Sua nova senha é: " + codigo + " \n\nAtenciosamente, \nJogo Saber Down";
+                myMessage.Subject = "Redefinir Senha Jogo Saber Down";
+                myMessage.Text = "Olá "+usuario.Descricao +"!\n\n Recebemos uma solicitação para redefinir senha.\n\n Acesse o aplicativo e informe a senha temporária: " + usuario.Senha + " \n\n Após o login, informe uma nova senha de acordo com a sua preferência.\n\n Estamos à disposição para eventuais dúvidas. \n\n\n Atenciosamente, \n\nJogo Saber Down\n\njogosaberdown@gmail.com";
 
                 // Create a Web transport, using API Key
                 var transportWeb = new Web("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");

@@ -17,7 +17,7 @@ namespace SDW.WebServiceJogo.MVC.Models
         public String Descricao { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(6)]
         public String Senha { get; set; }
 
         [Required]
