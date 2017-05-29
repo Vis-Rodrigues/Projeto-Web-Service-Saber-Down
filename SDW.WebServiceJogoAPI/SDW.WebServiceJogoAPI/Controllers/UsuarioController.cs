@@ -74,7 +74,7 @@ namespace SDW.WebServiceJogoAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
         
-        / DELETE api/usuario/id
+        // DELETE api/usuario/id
         public HttpResponseMessage Delete(int id)
         {
             try
