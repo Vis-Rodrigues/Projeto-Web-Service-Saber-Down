@@ -35,5 +35,10 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         {
             return _context.Pontuacoes.OrderByDescending(p => p.Ponto).ToList();
         }
+        
+        public void Deletar(int codigo)
+        {
+            _context.Pontuacoes.Remove(_context.Pontuacoes.Find(codigo));
+        }
     }
 }
