@@ -80,5 +80,10 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
             return usuario;
         }
+        
+        public void Deletar(int codigo)
+        {
+            _context.Usuarios.Remove(_context.Usuarios.Find(codigo));
+        }
     }
 }
