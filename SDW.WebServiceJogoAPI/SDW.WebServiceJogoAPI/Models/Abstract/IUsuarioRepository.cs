@@ -16,5 +16,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         void Atualizar(Usuario usuario);
         Usuario BuscarPorCodigo(int id);
         Usuario EnviarEmail(string email);
+        void Deletar(int codigo);
     }
 }
