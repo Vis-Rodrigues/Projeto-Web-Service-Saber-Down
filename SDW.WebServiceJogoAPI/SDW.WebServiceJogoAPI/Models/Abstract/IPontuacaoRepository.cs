@@ -13,6 +13,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
         void Atualizar(Pontuacao pontuacao);
         ICollection<Pontuacao> BuscarPorUsuario(int id);
         ICollection<Pontuacao> Listar();
-
+        void Deletar(int codigo);
     }
 }
