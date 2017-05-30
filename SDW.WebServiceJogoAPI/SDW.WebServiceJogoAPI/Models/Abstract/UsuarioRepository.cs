@@ -56,7 +56,11 @@ namespace SDW.WebServiceJogo.MVC.Repositories
             // email: jogosaberdown@gmail.com
             // senha: saberdownjogo
             // sendgrid user: JogoSaberDown
-            // senha: saberdown2016
+             // senha: saberdown2016
+            
+            // sendgrid user new: SaberDownJogo
+            // password: SaberDownJogo10
+           
             Usuario usuario = _context.Usuarios.Where(s => s.Email.Equals(email)).FirstOrDefault();
             if(usuario != null)
             {
@@ -72,8 +76,9 @@ namespace SDW.WebServiceJogo.MVC.Repositories
                 myMessage.Text = "Olá "+usuario.Descricao +"!\n\n Recebemos uma solicitação para redefinir senha.\n\n Acesse o aplicativo e informe a senha temporária: " + usuario.Senha + " \n\n Após o login, informe uma nova senha de acordo com a sua preferência.\n\n Estamos à disposição para eventuais dúvidas. \n\n\n Atenciosamente, \n\nJogo Saber Down\n\njogosaberdown@gmail.com";
 
                 // Create a Web transport, using API Key
-                var transportWeb = new Web("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");
-
+                //var transportWeb = new Web("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");
+                var transportWeb = new Web("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");
+                
                 // Send the email.
                 transportWeb.DeliverAsync(myMessage);
             }
