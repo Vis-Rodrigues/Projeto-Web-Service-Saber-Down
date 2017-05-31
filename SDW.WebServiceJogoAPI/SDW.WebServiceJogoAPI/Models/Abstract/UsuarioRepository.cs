@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using SDW.WebServiceJogoAPI.Models.Abstract;
 using SendGrid;
 using System.Net.Mail;
+using System.Net;
 
 namespace SDW.WebServiceJogo.MVC.Repositories
 {
@@ -69,7 +70,8 @@ namespace SDW.WebServiceJogo.MVC.Repositories
                 myMessage.Text = "Olá "+usuario.Descricao +"!\n\n Recebemos uma solicitação para redefinir senha.\n\n Acesse o aplicativo e informe a senha temporária: " + usuario.Senha + " \n\n Após o login, informe uma nova senha de acordo com a sua preferência.\n\n Estamos à disposição para eventuais dúvidas. \n\n\n Atenciosamente, \n\nJogo Saber Down\n\njogosaberdown@gmail.com";
 
                 // Create a Web transport, using API Key
-                
+                var credentials = new NetworkCredential("6309390d-cccf-4622-83d3-81cd593dbead@apphb.com", "ln6nhjm98702");
+                var transportWeb = new Web(credentials);
                 //var transportWeb = new Web("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");
                 //var transportWeb = new Web("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");
                 
