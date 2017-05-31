@@ -53,13 +53,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
         public Usuario EnviarEmail(string email)
         {
-            // email: jogosaberdown@gmail.com
-            // senha: saberdownjogo
-            // sendgrid user: JogoSaberDown
-             // senha: saberdown2016
-            
-            // sendgrid user new: SaberDownJogo
-            // password: SaberDownJogo10
            
             Usuario usuario = _context.Usuarios.Where(s => s.Email.Equals(email)).FirstOrDefault();
             if(usuario != null)
@@ -77,8 +70,6 @@ namespace SDW.WebServiceJogo.MVC.Repositories
 
                 // Create a Web transport, using API Key
                 
-                var credentials = new NetworkCredential("6309390d-cccf-4622-83d3-81cd593dbead@apphb.com", "ln6nhjm98702");
-                var transportWeb = new Web(credentials);
                 //var transportWeb = new Web("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");
                 //var transportWeb = new Web("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");
                 
